@@ -1,0 +1,284 @@
+<html>
+    <head>
+        <title>Rock Paper Scissor</title>
+        <script src="rockpaperscissor.js"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="main">
+        <img src="arcade-01.png" id="arcade">
+        <div id="choice">
+            <button id="rock" onclick=" you = 0; randy();">Rock</button>
+            <button id="scissor" onclick=" you = 1; randy();">Scissor</button>
+            <button id="paper" onclick=" you = 2; randy();">Paper</button>
+        </div>
+            <div id="screen">
+                <h1 id="display">Click red buttons below to play</h1>
+                <h2 id="result">Rock Scissor Paper</h2>
+                <div class="graphic">
+                    <img src="rock-02.png" class="disimg" id="leftImg">
+                    <img src="scissor-04.png" class="disimg" id="rightImg">
+                </div>
+                <p id="score">Score</p>
+            </div>
+        </div>
+        <style>
+            @media only screen and (min-width:1080px){
+            body{
+                margin:0;
+                width:100%;
+                padding:0;
+                font-family: 'Roboto', sans-serif;
+            }
+            .mainmenu{
+                width:1000px;
+                margin:auto;
+                text-align:center;
+                background-color:gray;
+            }
+            .choice{
+                display:grid;
+                grid-template-columns: 30% 30% 30%;
+                justify-content:center;
+                grid-gap:5%;
+            }
+            .main{
+                width:800px;
+                position:absolute;
+                height:2000px;
+                left: 50%;
+                transform: translate(-50%, 0);
+                margin-top:-20px;
+            }
+            #arcade{
+                width:800px;
+                text-align:center;
+                position:absolute;
+            }
+            button{
+                position:absolute;
+                z-index:1;
+                background-color:#dd0000;
+                width:166px;
+                height:44px;
+                border-radius:100%;
+                border:none;
+                font-size:24px;
+                font-weight:bold;
+            }
+            button:hover,button:focus,button:active{
+                background-color:#ff0000;
+                cursor:pointer;
+            }
+            #rock{
+                top:761px;
+                left:127px;
+            }
+            #scissor{
+                left:317px;
+                top:761px;
+            }
+            #paper{
+                top:761px;
+                left:507px;
+            }
+            #screen{
+                position:absolute;
+                width:480px;
+                height:380px;
+                background-color:#ddd;
+                top:310px;
+                left:160px;
+                text-align:center;
+            }
+            .disimg{
+                width:100px;
+                height:100px;
+                z-index:1;
+            }
+            .graphic{
+                display:grid;
+                grid-template-columns: 100px 100px;
+                justify-content:center;
+                grid-gap:120px;
+            }
+            h2{
+                font-size:48px;
+                font-weight:900;
+            }
+            p{
+                font-size:24px;
+            }
+            }
+
+            @media only screen and (max-width:1080px){
+            body{
+                margin:0;
+                width:100%;
+                padding:0;
+                font-family: 'Roboto', sans-serif;
+                display:grid;
+                grid-template-columns: 533.33px;
+                justify-content:center;
+            }
+            .mainmenu{
+                width:666.66px;
+                margin:auto;
+                text-align:center;
+                background-color:gray;
+            }
+            .choice{
+                display:grid;
+                grid-template-columns: 30% 30% 30%;
+                justify-content:center;
+                grid-gap:5%;
+            }
+            .main{
+                width:533.33px;
+                height:1500px;
+            }
+            #arcade{
+                width:533.33px;
+                text-align:center;
+                position:absolute;
+                z-index:-1;
+            }
+            button{
+                z-index:1;
+                background-color:#dd0000;
+                width:110.6666px;
+                height:29.3333px;
+                border-radius:100%;
+                border:none;
+                font-size:18px;
+                font-weight:bold;
+            }
+            button:hover,button:focus,button:active{
+                background-color:#ff0000;
+                cursor:pointer;
+            }
+            #choice{
+                display:grid;
+                grid-template-columns: 110.6666px 110.6666px 110.6666px;
+                grid-gap: 15.3333px;
+                margin-top:507.3333px;
+                justify-content:center;
+            }
+            #screen{
+                width:320px;
+                height:253.3333px;
+                background-color:#ddd;
+                margin-top:-360px;
+                margin-left:106.6666px;
+                text-align:center;
+            }
+            .disimg{
+                width:66.67px;
+                height:66.67px;
+                z-index:1;
+            }
+            .graphic{
+                display:grid;
+                grid-template-columns: 66.67px 66.67px;
+                justify-content:center;
+                grid-gap:80px;
+            }
+            h2{
+                font-size:32px;
+                font-weight:900;
+                line-height:0;
+                margin-bottom:48px;
+            }
+            h1{
+                font-size:22px;
+                padding-top:16px;
+            }
+            p{
+                font-size:18px;
+            }
+            }
+
+            @media only screen and (max-width:533.33px){
+            body{
+                margin:0;
+                width:100%;
+                padding:0;
+                font-family: 'Roboto', sans-serif;
+                display:grid;
+                grid-template-columns: 266.66px;
+                justify-content:center;
+            }
+            .mainmenu{
+                width:266.66px;
+                margin:auto;
+                text-align:center;
+                background-color:gray;
+            }
+            .main{
+                width:266.66px;
+                height:800px;
+            }
+            #arcade{
+                width:266.66px;
+                text-align:center;
+                position:absolute;
+                z-index:-1;
+            }
+            button{
+                z-index:1;
+                background-color:#dd0000;
+                width:55.5333px;
+                height:14.6666px;
+                border-radius:100%;
+                border:none;
+                font-size:12px;
+                font-weight:400;
+            }
+            button:hover,button:focus,button:active{
+                background-color:#ff0000;
+                cursor:pointer;
+            }
+            #choice{
+                display:grid;
+                grid-template-columns: 55.3333px 55.3333px 55.3333px;
+                grid-gap: 7.6666px;
+                margin-top:253.6666px;
+                justify-content:center;
+            }
+            #screen{
+                width:160px;
+                height:126.66665px;
+                background-color:#ddd;
+                margin-top:-180px;
+                margin-left:53.3333px;
+                text-align:center;
+            }
+            .disimg{
+                width:33.33px;
+                height:33.33px;
+                z-index:1;
+            }
+            .graphic{
+                display:grid;
+                grid-template-columns: 33.33px 33.33px;
+                justify-content:center;
+                grid-gap:40px;
+            }
+            h2{
+                font-size:16px;
+                font-weight:900;
+                line-height:0;
+                margin-bottom:24px;
+            }
+            h1{
+                font-size:11px;
+                padding-top:8px;
+            }
+            p{
+                font-size:12px;
+            }
+            }
+        </style>
+    </body>
+</html>
